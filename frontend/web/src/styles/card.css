@@ -1,0 +1,183 @@
+/* 
+ * card.css
+ * LightLink卡片组件样式
+ * 卡片是常用的容器组件，用于展示内容和信息
+ */
+
+:root {
+  /* 卡片阴影变量 */
+  --card-shadow: var(--shadow);
+  --card-shadow-hover: var(--shadow-lg);
+}
+
+/* 基础卡片样式 */
+.card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 紧凑型卡片 */
+.card-sm {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* 宽松型卡片 */
+.card-lg {
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+/* 无阴影卡片 */
+.card-flat {
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 卡片悬停效果 */
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--card-shadow-hover);
+}
+
+/* 可点击卡片 */
+.card-clickable {
+  cursor: pointer;
+}
+
+/* 卡片标题 */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+/* 卡片副标题 */
+.card-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* 卡片内容区域 */
+.card-body {
+  margin-bottom: 1rem;
+}
+
+/* 卡片底部操作区 */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 卡片分割线 */
+.card-divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+/* 带边框卡片 */
+.card-bordered {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+}
+
+/* 卡片上方强调色 */
+.card-accent-top {
+  border-top: 4px solid var(--primary);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* 卡片左侧强调色 */
+.card-accent-left {
+  border-left: 4px solid var(--primary);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* 主题色卡片 */
+.card-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.card-primary .card-title,
+.card-primary .card-subtitle {
+  color: var(--white);
+}
+
+/* 次要色卡片 */
+.card-secondary {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.card-secondary .card-title,
+.card-secondary .card-subtitle {
+  color: var(--white);
+}
+
+/* 卡片图像容器 */
+.card-img-container {
+  margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* 卡片图像 */
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* 卡片图像悬停效果 */
+.card-img-container:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* 卡片内列表项 */
+.card-list-item {
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-list-item:last-child {
+  border-bottom: none;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 1.2rem;
+  }
+  
+  .card-lg {
+    padding: 1.5rem;
+  }
+  
+  .card-img-container {
+    margin: -1.2rem -1.2rem 1.2rem -1.2rem;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
+} 

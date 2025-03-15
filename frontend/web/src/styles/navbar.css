@@ -1,0 +1,331 @@
+/* 
+ * navbar.css
+ * LightLink导航栏组件样式
+ * 导航栏是应用的主要导航组件，为用户提供应用内导航功能
+ */
+
+:root {
+  /* 导航栏变量 */
+  --navbar-height: 4rem;
+  --navbar-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --navbar-border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 基础导航栏 */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--navbar-height);
+  padding: 0 1.5rem;
+  background-color: var(--white);
+  box-shadow: var(--navbar-shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* 底部边框导航栏 */
+.navbar-bordered {
+  box-shadow: none;
+  border-bottom: var(--navbar-border);
+}
+
+/* 透明导航栏 */
+.navbar-transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* 品牌/Logo区域 */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+/* 导航项容器 */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 单个导航项 */
+.nav-item {
+  margin: 0 0.8rem;
+  position: relative;
+}
+
+/* 导航链接 */
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.25rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* 导航链接悬停效果 */
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* 激活的导航链接 */
+.nav-link.active {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* 下划线指示器 */
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* 下拉菜单 */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-toggle::after {
+  content: '';
+  display: inline-block;
+  margin-left: 0.5rem;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-toggle:hover::after {
+  transform: rotate(180deg);
+}
+
+/* 下拉菜单内容 */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 下拉菜单项 */
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: var(--text);
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 下拉分隔线 */
+.dropdown-divider {
+  height: 0;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 导航栏右侧按钮区域 */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-actions > * {
+  margin-left: 1rem;
+}
+
+/* 导航栏搜索框 */
+.navbar-search {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.search-input {
+  padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-size: 0.9rem;
+  width: 12rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  width: 15rem;
+  background-color: rgba(0, 0, 0, 0.07);
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+/* 汉堡菜单按钮（移动端） */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.navbar-toggle .bar {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background-color: var(--text);
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 992px) {
+  .navbar-toggle {
+    display: block;
+  }
+  
+  .navbar-nav, .navbar-actions {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow: var(--navbar-shadow);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+  
+  .navbar.mobile-open .navbar-nav,
+  .navbar.mobile-open .navbar-actions {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .navbar-actions {
+    top: calc(var(--navbar-height) + 200px);
+    padding-bottom: 2rem;
+  }
+  
+  .nav-item {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    padding: 0.75rem 0;
+  }
+  
+  .navbar-actions > * {
+    margin: 0.5rem 0;
+  }
+  
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.02);
+    margin-top: 0.5rem;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+  
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+  
+  .search-input, .search-input:focus {
+    width: 100%;
+  }
+  
+  .navbar-search {
+    width: 80%;
+    margin: 1rem 0;
+  }
+} 

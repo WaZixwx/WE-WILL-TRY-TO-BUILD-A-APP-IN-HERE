@@ -1,0 +1,312 @@
+/**
+ * LightLink 按钮样式
+ * 定义各种按钮组件的样式和交互效果
+ */
+
+/* 基础按钮样式 */
+.btn {
+    display: inline-flex;
+    /* 行内弹性布局 */
+    align-items: center;
+    /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+    padding: 0.75rem 1.5rem;
+    /* 内边距 */
+    border-radius: 8px;
+    /* 圆角 */
+    font-weight: 500;
+    /* 字体粗细 */
+    font-size: 1rem;
+    /* 字体大小 */
+    line-height: 1.5;
+    /* 行高 */
+    cursor: pointer;
+    /* 鼠标指针 */
+    transition: all 0.3s ease;
+    /* 过渡效果 */
+    border: none;
+    /* 无边框 */
+    gap: 0.5rem;
+    /* 子元素间距 */
+    text-decoration: none;
+    /* 无下划线 */
+    position: relative;
+    /* 相对定位 */
+    overflow: hidden;
+    /* 溢出隐藏 */
+}
+
+/* 主要按钮 */
+.btn-primary {
+    background-color: var(--primary);
+    /* 主色调背景 */
+    color: var(--white);
+    /* 白色文字 */
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25);
+    /* 阴影效果 */
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-light);
+    /* 悬停时变浅 */
+    transform: translateY(-2px);
+    /* 上浮效果 */
+    box-shadow: 0 6px 8px rgba(37, 99, 235, 0.35);
+    /* 增强阴影 */
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    /* 点击时回到原位 */
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+    /* 减弱阴影 */
+}
+
+/* 次要按钮 */
+.btn-secondary {
+    background-color: var(--secondary);
+    /* 次要背景色 */
+    color: var(--text);
+    /* 文字颜色 */
+    box-shadow: 0 2px 4px var(--shadow);
+    /* 阴影效果 */
+}
+
+.btn-secondary:hover {
+    background-color: #e2e8f0;
+    /* 悬停时稍微变暗 */
+    transform: translateY(-2px);
+    /* 上浮效果 */
+    box-shadow: 0 4px 6px var(--shadow-lg);
+    /* 增强阴影 */
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+    /* 点击时回到原位 */
+    box-shadow: 0 1px 2px var(--shadow);
+    /* 减弱阴影 */
+}
+
+/* 轮廓按钮 */
+.btn-outline {
+    background-color: transparent;
+    /* 透明背景 */
+    color: var(--primary);
+    /* 主色调文字 */
+    border: 2px solid var(--primary);
+    /* 主色调边框 */
+}
+
+.btn-outline:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+    /* 悬停时半透明背景 */
+    transform: translateY(-2px);
+    /* 上浮效果 */
+}
+
+.btn-outline:active {
+    transform: translateY(0);
+    /* 点击时回到原位 */
+}
+
+/* 文本按钮 */
+.btn-text {
+    background-color: transparent;
+    /* 透明背景 */
+    color: var(--primary);
+    /* 主色调文字 */
+    padding: 0.5rem 0.75rem;
+    /* 较小内边距 */
+    box-shadow: none;
+    /* 无阴影 */
+}
+
+.btn-text:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+    /* 悬停时半透明背景 */
+}
+
+.btn-text:active {
+    background-color: rgba(37, 99, 235, 0.2);
+    /* 点击时半透明背景增强 */
+}
+
+/* 危险按钮 */
+.btn-danger {
+    background-color: #ef4444;
+    /* 红色背景 */
+    color: var(--white);
+    /* 白色文字 */
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+    /* 悬停时变深 */
+    transform: translateY(-2px);
+    /* 上浮效果 */
+}
+
+.btn-danger:active {
+    transform: translateY(0);
+    /* 点击时回到原位 */
+}
+
+/* 成功按钮 */
+.btn-success {
+    background-color: #10b981;
+    /* 绿色背景 */
+    color: var(--white);
+    /* 白色文字 */
+}
+
+.btn-success:hover {
+    background-color: #059669;
+    /* 悬停时变深 */
+    transform: translateY(-2px);
+    /* 上浮效果 */
+}
+
+.btn-success:active {
+    transform: translateY(0);
+    /* 点击时回到原位 */
+}
+
+/* 按钮尺寸 */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    /* 小尺寸内边距 */
+    font-size: 0.875rem;
+    /* 小尺寸字体 */
+    border-radius: 6px;
+    /* 小尺寸圆角 */
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    /* 大尺寸内边距 */
+    font-size: 1.125rem;
+    /* 大尺寸字体 */
+    border-radius: 10px;
+    /* 大尺寸圆角 */
+}
+
+/* 圆形按钮 */
+.btn-circle {
+    border-radius: 50%;
+    /* 圆形 */
+    width: 3rem;
+    /* 宽度 */
+    height: 3rem;
+    /* 高度 */
+    padding: 0;
+    /* 无内边距 */
+    display: inline-flex;
+    /* 行内弹性布局 */
+    align-items: center;
+    /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+}
+
+.btn-circle.btn-sm {
+    width: 2.5rem;
+    /* 小尺寸宽度 */
+    height: 2.5rem;
+    /* 小尺寸高度 */
+}
+
+.btn-circle.btn-lg {
+    width: 4rem;
+    /* 大尺寸宽度 */
+    height: 4rem;
+    /* 大尺寸高度 */
+}
+
+/* 按钮加载状态 */
+.btn-loading {
+    position: relative;
+    /* 相对定位 */
+    color: transparent !important;
+    /* 文字透明 */
+    pointer-events: none;
+    /* 禁止交互 */
+}
+
+.btn-loading::after {
+    content: "";
+    /* 无内容 */
+    position: absolute;
+    /* 绝对定位 */
+    top: 50%;
+    /* 垂直居中 */
+    left: 50%;
+    /* 水平居中 */
+    width: 1.2em;
+    /* 宽度 */
+    height: 1.2em;
+    /* 高度 */
+    margin: -0.6em 0 0 -0.6em;
+    /* 居中调整 */
+    border: 2px solid currentColor;
+    /* 边框 */
+    border-right-color: transparent;
+    /* 右边框透明 */
+    border-radius: 50%;
+    /* 圆形 */
+    animation: btn-loading 0.75s linear infinite;
+    /* 旋转动画 */
+}
+
+@keyframes btn-loading {
+    from {
+        transform: rotate(0);
+        /* 起始无旋转 */
+    }
+    to {
+        transform: rotate(360deg);
+        /* 结束一圈旋转 */
+    }
+}
+
+/* 禁用状态 */
+.btn:disabled, 
+.btn.disabled {
+    opacity: 0.65;
+    /* 降低透明度 */
+    cursor: not-allowed;
+    /* 禁止指针 */
+    pointer-events: none;
+    /* 禁止交互 */
+    box-shadow: none;
+    /* 无阴影 */
+}
+
+/* 带图标的按钮 */
+.btn-icon-left i, 
+.btn-icon-left svg {
+    margin-right: 0.5rem;
+    /* 右边距 */
+}
+
+.btn-icon-right i, 
+.btn-icon-right svg {
+    margin-left: 0.5rem;
+    /* 左边距 */
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.6rem 1.2rem;
+        /* 较小内边距 */
+        font-size: 0.95rem;
+        /* 较小字体 */
+    }
+    
+    .btn-lg {
+        padding: 0.8rem 1.5rem;
+        /* 大按钮较小内边距 */
+    }
+} 

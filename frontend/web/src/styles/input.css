@@ -1,0 +1,357 @@
+/**
+ * LightLink 输入框样式
+ * 定义各种表单输入控件的样式和交互效果
+ */
+
+/* 基础输入框样式 */
+.input {
+    display: block;
+    /* 块级元素 */
+    width: 100%;
+    /* 宽度100% */
+    padding: 0.75rem 1rem;
+    /* 内边距 */
+    font-size: 1rem;
+    /* 字体大小 */
+    line-height: 1.5;
+    /* 行高 */
+    color: var(--text);
+    /* 文字颜色 */
+    background-color: var(--white);
+    /* 背景色 */
+    border: 1px solid #cbd5e1;
+    /* 边框 */
+    border-radius: 8px;
+    /* 圆角 */
+    transition: all 0.3s ease;
+    /* 过渡效果 */
+    outline: none;
+    /* 无轮廓 */
+}
+
+.input:focus {
+    border-color: var(--primary);
+    /* 聚焦时边框颜色 */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+    /* 聚焦时阴影 */
+}
+
+/* 输入框尺寸 */
+.input-sm {
+    padding: 0.5rem 0.75rem;
+    /* 较小内边距 */
+    font-size: 0.875rem;
+    /* 较小字体 */
+    border-radius: 6px;
+    /* 较小圆角 */
+}
+
+.input-lg {
+    padding: 1rem 1.25rem;
+    /* 较大内边距 */
+    font-size: 1.125rem;
+    /* 较大字体 */
+    border-radius: 10px;
+    /* 较大圆角 */
+}
+
+/* 输入框组 */
+.input-group {
+    position: relative;
+    /* 相对定位 */
+    display: flex;
+    /* 弹性布局 */
+    flex-wrap: wrap;
+    /* 允许换行 */
+    align-items: stretch;
+    /* 拉伸对齐 */
+    width: 100%;
+    /* 宽度100% */
+}
+
+.input-group .input {
+    position: relative;
+    /* 相对定位 */
+    flex: 1 1 auto;
+    /* 自动伸展 */
+    width: 1%;
+    /* 宽度1%，实际会被flex覆盖 */
+    margin-bottom: 0;
+    /* 无下边距 */
+}
+
+.input-group .input:not(:last-child) {
+    border-top-right-radius: 0;
+    /* 右上角无圆角 */
+    border-bottom-right-radius: 0;
+    /* 右下角无圆角 */
+}
+
+.input-group .input:not(:first-child) {
+    border-top-left-radius: 0;
+    /* 左上角无圆角 */
+    border-bottom-left-radius: 0;
+    /* 左下角无圆角 */
+}
+
+/* 前置添加内容 */
+.input-group-prepend {
+    display: flex;
+    /* 弹性布局 */
+    align-items: center;
+    /* 垂直居中 */
+    padding: 0 1rem;
+    /* 内边距 */
+    font-size: 1rem;
+    /* 字体大小 */
+    font-weight: 400;
+    /* 字体粗细 */
+    line-height: 1.5;
+    /* 行高 */
+    color: var(--text-light);
+    /* 文字颜色 */
+    text-align: center;
+    /* 文字居中 */
+    white-space: nowrap;
+    /* 不换行 */
+    background-color: #f8fafc;
+    /* 背景色 */
+    border: 1px solid #cbd5e1;
+    /* 边框 */
+    border-right: 0;
+    /* 右边无边框 */
+    border-radius: 8px 0 0 8px;
+    /* 左侧圆角 */
+}
+
+/* 后置添加内容 */
+.input-group-append {
+    display: flex;
+    /* 弹性布局 */
+    align-items: center;
+    /* 垂直居中 */
+    padding: 0 1rem;
+    /* 内边距 */
+    font-size: 1rem;
+    /* 字体大小 */
+    font-weight: 400;
+    /* 字体粗细 */
+    line-height: 1.5;
+    /* 行高 */
+    color: var(--text-light);
+    /* 文字颜色 */
+    text-align: center;
+    /* 文字居中 */
+    white-space: nowrap;
+    /* 不换行 */
+    background-color: #f8fafc;
+    /* 背景色 */
+    border: 1px solid #cbd5e1;
+    /* 边框 */
+    border-left: 0;
+    /* 左边无边框 */
+    border-radius: 0 8px 8px 0;
+    /* 右侧圆角 */
+}
+
+/* 表单控件组 */
+.form-group {
+    margin-bottom: 1.5rem;
+    /* 下边距 */
+}
+
+.form-group label {
+    display: block;
+    /* 块级元素 */
+    margin-bottom: 0.5rem;
+    /* 下边距 */
+    font-weight: 500;
+    /* 字体粗细 */
+    color: var(--text);
+    /* 文字颜色 */
+}
+
+.form-group .form-text {
+    display: block;
+    /* 块级元素 */
+    margin-top: 0.25rem;
+    /* 上边距 */
+    font-size: 0.875rem;
+    /* 较小字体 */
+    color: var(--text-light);
+    /* 文字颜色 */
+}
+
+/* 验证状态 */
+.input.is-valid {
+    border-color: #10b981;
+    /* 验证通过颜色 */
+    padding-right: 2.5rem !important;
+    /* 右侧内边距 */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2310b981' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    /* 验证通过图标 */
+    background-repeat: no-repeat;
+    /* 不重复 */
+    background-position: right 1rem center;
+    /* 位置 */
+    background-size: 1.5rem;
+    /* 图标大小 */
+}
+
+.input.is-invalid {
+    border-color: #ef4444;
+    /* 验证失败颜色 */
+    padding-right: 2.5rem !important;
+    /* 右侧内边距 */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23ef4444' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23ef4444' stroke='none'/%3e%3c/svg%3e");
+    /* 验证失败图标 */
+    background-repeat: no-repeat;
+    /* 不重复 */
+    background-position: right 1rem center;
+    /* 位置 */
+    background-size: 1.5rem;
+    /* 图标大小 */
+}
+
+.invalid-feedback {
+    display: none;
+    /* 默认隐藏 */
+    width: 100%;
+    /* 宽度100% */
+    margin-top: 0.25rem;
+    /* 上边距 */
+    font-size: 0.875rem;
+    /* 较小字体 */
+    color: #ef4444;
+    /* 错误文字颜色 */
+}
+
+.input.is-invalid ~ .invalid-feedback {
+    display: block;
+    /* 显示错误信息 */
+}
+
+/* 复选框和单选框 */
+.form-check {
+    position: relative;
+    /* 相对定位 */
+    display: block;
+    /* 块级元素 */
+    padding-left: 1.8rem;
+    /* 左侧内边距 */
+    margin-bottom: 0.75rem;
+    /* 下边距 */
+}
+
+.form-check-input {
+    position: absolute;
+    /* 绝对定位 */
+    margin-top: 0.3rem;
+    /* 上边距 */
+    margin-left: -1.8rem;
+    /* 左边距 */
+    width: 1.25rem;
+    /* 宽度 */
+    height: 1.25rem;
+    /* 高度 */
+    cursor: pointer;
+    /* 指针样式 */
+}
+
+.form-check-label {
+    margin-bottom: 0;
+    /* 无下边距 */
+    cursor: pointer;
+    /* 指针样式 */
+}
+
+/* 禁用状态 */
+.input:disabled,
+.input[readonly] {
+    background-color: #f1f5f9;
+    /* 禁用背景色 */
+    opacity: 0.7;
+    /* 透明度 */
+    cursor: not-allowed;
+    /* 禁止指针 */
+}
+
+/* 搜索输入框 */
+.input-search {
+    padding-left: 2.5rem;
+    /* 左侧内边距 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E");
+    /* 搜索图标 */
+    background-repeat: no-repeat;
+    /* 不重复 */
+    background-position: left 1rem center;
+    /* 位置 */
+    background-size: 1.25rem;
+    /* 图标大小 */
+}
+
+/* 带清除按钮的输入框 */
+.input-clearable {
+    padding-right: 2.5rem;
+    /* 右侧内边距 */
+}
+
+.input-clear-button {
+    position: absolute;
+    /* 绝对定位 */
+    top: 50%;
+    /* 垂直居中 */
+    right: 1rem;
+    /* 右侧距离 */
+    transform: translateY(-50%);
+    /* 垂直居中调整 */
+    width: 1.25rem;
+    /* 宽度 */
+    height: 1.25rem;
+    /* 高度 */
+    border-radius: 50%;
+    /* 圆形 */
+    background-color: #e2e8f0;
+    /* 背景色 */
+    display: flex;
+    /* 弹性布局 */
+    align-items: center;
+    /* 垂直居中 */
+    justify-content: center;
+    /* 水平居中 */
+    cursor: pointer;
+    /* 指针样式 */
+    opacity: 0.7;
+    /* 透明度 */
+    transition: all 0.2s ease;
+    /* 过渡效果 */
+    font-size: 0.75rem;
+    /* 字体大小 */
+    color: var(--text);
+    /* 文字颜色 */
+}
+
+.input-clear-button:hover {
+    opacity: 1;
+    /* 悬停时透明度 */
+    background-color: #cbd5e1;
+    /* 悬停时背景色 */
+}
+
+/* 文本域 */
+textarea.input {
+    min-height: 100px;
+    /* 最小高度 */
+    resize: vertical;
+    /* 仅允许垂直调整大小 */
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .input {
+        padding: 0.6rem 0.8rem;
+        /* 较小内边距 */
+        font-size: 0.95rem;
+        /* 较小字体 */
+    }
+} 

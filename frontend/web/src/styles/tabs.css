@@ -1,0 +1,300 @@
+/**
+ * tabs.css
+ * LightLink标签页组件样式
+ * 标签页用于在同一区域内切换不同内容视图
+ */
+
+:root {
+  /* 标签页变量 */
+  --tabs-border-color: rgba(0, 0, 0, 0.1);
+  --tabs-active-border-color: var(--primary);
+  --tabs-hover-bg: rgba(0, 0, 0, 0.03);
+  --tabs-active-bg: rgba(37, 99, 235, 0.05);
+}
+
+/* 基础标签页容器 */
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* 标签页导航 */
+.tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--tabs-border-color);
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+/* 标签页项目 */
+.tabs-nav-item {
+  margin-bottom: -1px;
+}
+
+.tabs-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.tabs-nav-link:hover {
+  background-color: var(--tabs-hover-bg);
+  border-color: var(--tabs-border-color) var(--tabs-border-color) transparent;
+}
+
+.tabs-nav-link.active {
+  color: var(--primary);
+  background-color: var(--white);
+  border-color: var(--tabs-border-color) var(--tabs-border-color) var(--white);
+}
+
+/* 活动标签项底部指示器 */
+.tabs-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+}
+
+/* 标签页内容容器 */
+.tabs-content {
+  padding: 1.5rem;
+  border: 1px solid var(--tabs-border-color);
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: var(--white);
+}
+
+/* 标签页内容面板 */
+.tabs-panel {
+  display: none;
+}
+
+.tabs-panel.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 带图标的标签 */
+.tabs-nav-link .tabs-icon {
+  font-size: 1.1rem;
+}
+
+/* 胶囊式标签页 */
+.tabs-pills .tabs-nav {
+  border-bottom: none;
+  gap: 0.5rem;
+}
+
+.tabs-pills .tabs-nav-link {
+  border-radius: 30px;
+  margin-right: 0.25rem;
+  padding: 0.5rem 1.25rem;
+}
+
+.tabs-pills .tabs-nav-link.active {
+  color: var(--white);
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.tabs-pills .tabs-nav-link.active::after {
+  display: none;
+}
+
+.tabs-pills .tabs-content {
+  border: none;
+  padding: 1.5rem 0;
+}
+
+/* 垂直标签页 */
+.tabs-vertical {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.tabs-vertical .tabs-nav {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 1px solid var(--tabs-border-color);
+  padding-right: 0;
+  width: 200px;
+}
+
+.tabs-vertical .tabs-nav-item {
+  margin-bottom: 0.25rem;
+  margin-right: -1px;
+}
+
+.tabs-vertical .tabs-nav-link {
+  border-radius: 8px 0 0 8px;
+  padding: 0.75rem 1rem;
+  border: 1px solid transparent;
+}
+
+.tabs-vertical .tabs-nav-link.active {
+  border-color: var(--tabs-border-color) var(--white) var(--tabs-border-color) var(--tabs-border-color);
+}
+
+.tabs-vertical .tabs-nav-link.active::after {
+  top: 0;
+  bottom: auto;
+  left: auto;
+  right: -1px;
+  width: 2px;
+  height: 100%;
+}
+
+.tabs-vertical .tabs-content {
+  flex: 1;
+  border-top: 1px solid var(--tabs-border-color);
+  border-radius: 0 8px 8px 8px;
+}
+
+/* 带数字指标的标签页 */
+.tabs-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.35rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--text);
+  margin-left: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.tabs-nav-link.active .tabs-badge {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* 带下划线样式的标签页 */
+.tabs-underline .tabs-nav {
+  border-bottom: none;
+  gap: 2rem;
+}
+
+.tabs-underline .tabs-nav-link {
+  padding: 0.75rem 0;
+  border: none;
+  border-radius: 0;
+  position: relative;
+}
+
+.tabs-underline .tabs-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.tabs-underline .tabs-nav-link:hover::after {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tabs-underline .tabs-nav-link.active::after {
+  background-color: var(--primary);
+}
+
+.tabs-underline .tabs-content {
+  border: none;
+  padding: 1.5rem 0;
+}
+
+/* 带动画效果的标签页 */
+.tabs-animated .tabs-panel.active {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .tabs-vertical {
+    flex-direction: column;
+  }
+  
+  .tabs-vertical .tabs-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--tabs-border-color);
+    margin-bottom: 1rem;
+  }
+  
+  .tabs-vertical .tabs-nav-item {
+    margin-right: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tabs-vertical .tabs-nav-link {
+    border-radius: 8px;
+  }
+  
+  .tabs-vertical .tabs-nav-link.active {
+    border-color: var(--tabs-border-color);
+  }
+  
+  .tabs-vertical .tabs-nav-link.active::after {
+    top: auto;
+    bottom: -1px;
+    left: 0;
+    right: auto;
+    width: 100%;
+    height: 2px;
+  }
+  
+  .tabs-vertical .tabs-content {
+    border-radius: 8px;
+    border: 1px solid var(--tabs-border-color);
+  }
+  
+  .tabs-pills .tabs-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+} 

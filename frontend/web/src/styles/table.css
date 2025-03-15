@@ -1,0 +1,309 @@
+/**
+ * table.css
+ * LightLink表格组件样式
+ * 表格用于展示结构化数据，提供清晰的数据呈现方式
+ */
+
+:root {
+  /* 表格变量 */
+  --table-border-color: rgba(0, 0, 0, 0.1);
+  --table-header-bg: #f8fafc;
+  --table-hover-bg: rgba(37, 99, 235, 0.05);
+  --table-stripe-bg: #f1f5f9;
+}
+
+/* 基础表格样式 */
+.table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+/* 表头样式 */
+.table thead th {
+  padding: 1rem;
+  font-weight: 600;
+  text-align: left;
+  background-color: var(--table-header-bg);
+  border-bottom: 2px solid var(--table-border-color);
+  position: relative;
+  vertical-align: middle;
+}
+
+/* 表格单元格 */
+.table td {
+  padding: 1rem;
+  vertical-align: middle;
+  border-top: 1px solid var(--table-border-color);
+}
+
+/* 表格行悬停效果 */
+.table-hover tbody tr:hover {
+  background-color: var(--table-hover-bg);
+}
+
+/* 紧凑型表格 */
+.table-sm thead th,
+.table-sm tbody td {
+  padding: 0.5rem;
+}
+
+/* 带边框表格 */
+.table-bordered {
+  border: 1px solid var(--table-border-color);
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid var(--table-border-color);
+}
+
+/* 无边框表格 */
+.table-borderless th,
+.table-borderless td {
+  border: none;
+}
+
+/* 斑马纹表格 */
+.table-striped tbody tr:nth-child(odd) {
+  background-color: var(--table-stripe-bg);
+}
+
+/* 响应式表格 */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 带排序功能的表头 */
+.table-sortable th {
+  cursor: pointer;
+  user-select: none;
+}
+
+.table-sortable th::after {
+  content: '↕';
+  margin-left: 0.5rem;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.table-sortable th.sort-asc::after {
+  content: '↑';
+  color: var(--primary);
+}
+
+.table-sortable th.sort-desc::after {
+  content: '↓';
+  color: var(--primary);
+}
+
+/* 表格状态类 */
+.table .status-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.table .status-indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.table .status-active .status-indicator {
+  background-color: #10b981; /* 绿色 */
+}
+
+.table .status-pending .status-indicator {
+  background-color: #f59e0b; /* 黄色 */
+}
+
+.table .status-inactive .status-indicator {
+  background-color: #ef4444; /* 红色 */
+}
+
+/* 表格操作按钮区 */
+.table .actions-cell {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.table .btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.table .btn-action:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* 可选择表格 */
+.table-selectable .checkbox-cell {
+  width: 3rem;
+  text-align: center;
+}
+
+.table-selectable .custom-checkbox {
+  display: inline-block;
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.table-selectable .custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.table-selectable .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+
+.table-selectable .custom-checkbox:hover .checkmark {
+  background-color: #e2e8f0;
+}
+
+.table-selectable .custom-checkbox input:checked ~ .checkmark {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.table-selectable .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.table-selectable .custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.table-selectable .custom-checkbox .checkmark:after {
+  left: 0.45rem;
+  top: 0.2rem;
+  width: 0.25rem;
+  height: 0.5rem;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* 分页控件 */
+.table-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.table-pagination .pagination-info {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.table-pagination .pagination-controls {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.table-pagination .page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: var(--white);
+  color: var(--text);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.table-pagination .page-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.table-pagination .page-btn.active {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.table-pagination .page-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .table-responsive-stack {
+    display: block;
+  }
+  
+  .table-responsive-stack thead {
+    display: none;
+  }
+  
+  .table-responsive-stack tbody, 
+  .table-responsive-stack tr, 
+  .table-responsive-stack td {
+    display: block;
+    width: 100%;
+  }
+  
+  .table-responsive-stack tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table-responsive-stack td {
+    position: relative;
+    padding-left: 40%;
+    text-align: right;
+    border-top: none;
+    border-bottom: 1px solid var(--table-border-color);
+  }
+  
+  .table-responsive-stack td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .table-responsive-stack td:last-child {
+    border-bottom: none;
+  }
+} 

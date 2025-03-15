@@ -1,0 +1,247 @@
+/* 
+ * modal.css
+ * LightLink模态对话框组件样式
+ * 模态对话框用于显示需要用户注意的内容，同时阻止与页面其他部分的交互
+ */
+
+:root {
+  /* 模态框变量 */
+  --modal-border-radius: 12px;
+  --modal-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --modal-backdrop: rgba(0, 0, 0, 0.5);
+  --modal-z-index: 1050;
+  --modal-animation-duration: 0.3s;
+}
+
+/* 模态框背景遮罩 */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-backdrop);
+  backdrop-filter: blur(4px);
+  z-index: var(--modal-z-index);
+  opacity: 0;
+  transition: opacity var(--modal-animation-duration) ease;
+}
+
+.modal-backdrop.show {
+  opacity: 1;
+}
+
+/* 模态框容器 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: calc(var(--modal-z-index) + 1);
+  pointer-events: none;
+}
+
+/* 模态框内容 */
+.modal-content {
+  background-color: var(--white);
+  border-radius: var(--modal-border-radius);
+  box-shadow: var(--modal-shadow);
+  max-width: 90%;
+  max-height: 85vh;
+  width: 500px;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.9) translateY(-20px);
+  transition: opacity var(--modal-animation-duration) ease,
+              transform var(--modal-animation-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.modal.show .modal-content {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* 模态框头部 */
+.modal-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* 关闭按钮 */
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: -0.5rem -0.5rem -0.5rem 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--text);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 模态框主体 */
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+/* 模态框底部 */
+.modal-footer {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 模态框尺寸 */
+.modal-sm .modal-content {
+  width: 300px;
+}
+
+.modal-lg .modal-content {
+  width: 800px;
+}
+
+.modal-xl .modal-content {
+  width: 1140px;
+}
+
+/* 全屏模态框 */
+.modal-fullscreen .modal-content {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* 居中模态框 */
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+}
+
+/* 可滚动模态框 */
+.modal-dialog-scrollable .modal-content {
+  max-height: 100%;
+}
+
+.modal-dialog-scrollable .modal-body {
+  overflow-y: auto;
+}
+
+/* 多重模态框层级 */
+.modal-backdrop + .modal-backdrop {
+  z-index: calc(var(--modal-z-index) + 2);
+}
+
+.modal + .modal {
+  z-index: calc(var(--modal-z-index) + 3);
+}
+
+/* 模态框动画效果 */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.95) translateY(-10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes modalFadeOut {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to { opacity: 0; transform: scale(0.95) translateY(-10px); }
+}
+
+/* 自定义模态框内容样式 */
+.modal-body-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.modal-message {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* 成功、警告和错误模态框 */
+.modal-success .modal-icon {
+  color: #28a745;
+}
+
+.modal-warning .modal-icon {
+  color: #ffc107;
+}
+
+.modal-error .modal-icon {
+  color: #dc3545;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 576px) {
+  .modal-content {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .modal-header {
+    padding: 1rem;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  .modal-footer {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .modal-footer .btn {
+    width: 100%;
+  }
+  
+  .modal-lg .modal-content,
+  .modal-xl .modal-content {
+    width: 95%;
+  }
+} 

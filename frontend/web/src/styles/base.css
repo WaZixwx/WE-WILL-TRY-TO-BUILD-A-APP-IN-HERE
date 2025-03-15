@@ -1,0 +1,184 @@
+/**
+ * LightLink 基础样式表
+ * 定义全局CSS变量和基础样式
+ */
+
+:root {
+    --primary: #2563eb;
+    /* 主色调 */
+    --primary-light: #60a5fa;
+    /* 主色调的浅色 */
+    --secondary: #f1f5f9;
+    /* 背景色 */
+    --text: #1e293b;
+    /* 主要文字颜色 */
+    --text-light: #64748b;
+    /* 次要文字颜色 */
+    --shadow: rgba(0, 0, 0, 0.1);
+    /* 阴影效果 */
+    --shadow-lg: rgba(0, 0, 0, 0.15);
+    /* 大阴影效果 */
+    --white: #ffffff;
+    /* 白色 */
+}
+
+* {
+    margin: 0;
+    /* 清除默认边距 */
+    padding: 0;
+    /* 清除默认内边距 */
+    box-sizing: border-box;
+    /* 盒子模型设置 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* 字体设置 */
+}
+
+body {
+    background: var(--secondary);
+    /* 背景色 */
+    color: var(--text);
+    /* 文字颜色 */
+    min-height: 100vh;
+    /* 最小高度为视口高度 */
+    overflow-x: hidden;
+    /* 禁止横向滚动 */
+    line-height: 1.6;
+    /* 行高 */
+}
+
+.container {
+    max-width: 1200px;
+    /* 最大宽度 */
+    margin: 0 auto;
+    /* 居中 */
+    padding: 2rem;
+    /* 内边距 */
+}
+
+/* 通用标题样式 */
+.header {
+    text-align: center;
+    /* 文字居中 */
+    margin-bottom: 3rem;
+    /* 下边距 */
+    opacity: 0;
+    /* 初始透明度 */
+    transform: translateY(20px);
+    /* 向下移动 */
+    animation: fadeInUp 0.8s ease forwards;
+    /* 动画效果 */
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    /* 标题字体大小 */
+    color: var(--primary);
+    /* 标题颜色 */
+    margin-bottom: 0.5rem;
+    /* 下边距 */
+    font-weight: 700;
+    /* 字体加粗 */
+}
+
+.header p {
+    color: var(--text-light);
+    /* 副标题颜色 */
+    font-size: 1.1rem;
+    /* 副标题字体大小 */
+}
+
+/* 通用动画定义 */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        /* 结束时完全不透明 */
+        transform: translateY(0);
+        /* 结束时回到原位 */
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        /* 结束时完全不透明 */
+        transform: scale(1);
+        /* 结束时回到原位 */
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        /* 初始透明度 */
+        transform: translateY(20px);
+        /* 向下移动 */
+    }
+
+    to {
+        opacity: 1;
+        /* 结束时完全不透明 */
+        transform: translateY(0);
+        /* 结束时回到原位 */
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        /* 初始透明度 */
+        transform: scale(0.9);
+        /* 初始缩放 */
+    }
+
+    to {
+        opacity: 1;
+        /* 结束时完全不透明 */
+        transform: scale(1);
+        /* 结束时回到原位 */
+    }
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+        /* 不动 */
+    }
+
+    40% {
+        transform: translateY(-10px);
+        /* 向上移动 */
+    }
+
+    60% {
+        transform: translateY(-5px);
+        /* 向上移动 */
+    }
+}
+
+/* 通用动画类 */
+.animate-slide-in {
+    animation: slideIn 0.5s ease forwards;
+    /* 动画效果 */
+}
+
+.animate-fade-scale {
+    animation: fadeInScale 0.5s ease forwards;
+    /* 动画效果 */
+}
+
+.animate-bounce {
+    animation: bounce 1s ease infinite;
+    /* 动画效果 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        /* 内边距 */
+    }
+} 

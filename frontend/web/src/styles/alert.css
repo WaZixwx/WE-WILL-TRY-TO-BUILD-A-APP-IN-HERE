@@ -1,0 +1,388 @@
+/**
+ * alert.css
+ * LightLink警告提示组件样式
+ * 警告提示用于向用户显示重要的上下文相关反馈信息
+ */
+
+:root {
+  /* 警告提示变量 */
+  --alert-padding: 1rem 1.25rem;
+  --alert-margin-bottom: 1rem;
+  --alert-border-radius: 8px;
+  --alert-border-width: 1px;
+  
+  /* 默认警告提示 */
+  --alert-default-bg: #f8fafc;
+  --alert-default-border: #e2e8f0;
+  --alert-default-color: var(--text);
+  
+  /* 成功警告提示 */
+  --alert-success-bg: #ecfdf5;
+  --alert-success-border: #a7f3d0;
+  --alert-success-color: #047857;
+  
+  /* 信息警告提示 */
+  --alert-info-bg: #eff6ff;
+  --alert-info-border: #bfdbfe;
+  --alert-info-color: #1d4ed8;
+  
+  /* 警告警告提示 */
+  --alert-warning-bg: #fffbeb;
+  --alert-warning-border: #fde68a;
+  --alert-warning-color: #b45309;
+  
+  /* 危险警告提示 */
+  --alert-danger-bg: #fef2f2;
+  --alert-danger-border: #fecaca;
+  --alert-danger-color: #b91c1c;
+}
+
+/* 基础警告提示样式 */
+.alert {
+  position: relative;
+  padding: var(--alert-padding);
+  margin-bottom: var(--alert-margin-bottom);
+  border: var(--alert-border-width) solid transparent;
+  border-radius: var(--alert-border-radius);
+  background-color: var(--alert-default-bg);
+  border-color: var(--alert-default-border);
+  color: var(--alert-default-color);
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* 警告提示关闭按钮 */
+.alert-dismissible {
+  padding-right: 3rem;
+}
+
+.alert-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem 1.25rem;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  opacity: 0.5;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: opacity 0.15s ease;
+}
+
+.alert-close:hover {
+  opacity: 1;
+}
+
+/* 警告提示变体 */
+.alert-success {
+  background-color: var(--alert-success-bg);
+  border-color: var(--alert-success-border);
+  color: var(--alert-success-color);
+}
+
+.alert-info {
+  background-color: var(--alert-info-bg);
+  border-color: var(--alert-info-border);
+  color: var(--alert-info-color);
+}
+
+.alert-warning {
+  background-color: var(--alert-warning-bg);
+  border-color: var(--alert-warning-border);
+  color: var(--alert-warning-color);
+}
+
+.alert-danger {
+  background-color: var(--alert-danger-bg);
+  border-color: var(--alert-danger-border);
+  color: var(--alert-danger-color);
+}
+
+/* 带图标的警告提示 */
+.alert-with-icon {
+  padding-left: 3.25rem;
+}
+
+.alert-icon {
+  position: absolute;
+  top: 1rem;
+  left: 1.25rem;
+  font-size: 1.25rem;
+}
+
+/* 不同风格的警告提示 */
+/* 轮廓风格 */
+.alert-outline {
+  background-color: transparent;
+}
+
+.alert-outline.alert-success {
+  color: var(--alert-success-color);
+}
+
+.alert-outline.alert-info {
+  color: var(--alert-info-color);
+}
+
+.alert-outline.alert-warning {
+  color: var(--alert-warning-color);
+}
+
+.alert-outline.alert-danger {
+  color: var(--alert-danger-color);
+}
+
+/* 填充风格 */
+.alert-filled {
+  border: none;
+}
+
+.alert-filled.alert-success {
+  background-color: var(--alert-success-color);
+  color: white;
+}
+
+.alert-filled.alert-info {
+  background-color: var(--alert-info-color);
+  color: white;
+}
+
+.alert-filled.alert-warning {
+  background-color: var(--alert-warning-color);
+  color: white;
+}
+
+.alert-filled.alert-danger {
+  background-color: var(--alert-danger-color);
+  color: white;
+}
+
+/* 左侧边框风格 */
+.alert-bordered-left {
+  border-left-width: 4px;
+  background-color: transparent;
+}
+
+.alert-bordered-left.alert-success {
+  border-left-color: var(--alert-success-color);
+}
+
+.alert-bordered-left.alert-info {
+  border-left-color: var(--alert-info-color);
+}
+
+.alert-bordered-left.alert-warning {
+  border-left-color: var(--alert-warning-color);
+}
+
+.alert-bordered-left.alert-danger {
+  border-left-color: var(--alert-danger-color);
+}
+
+/* 渐变背景警告提示 */
+.alert-gradient.alert-success {
+  background: linear-gradient(45deg, var(--alert-success-color), #34d399);
+  color: white;
+  border: none;
+}
+
+.alert-gradient.alert-info {
+  background: linear-gradient(45deg, var(--alert-info-color), #60a5fa);
+  color: white;
+  border: none;
+}
+
+.alert-gradient.alert-warning {
+  background: linear-gradient(45deg, var(--alert-warning-color), #fbbf24);
+  color: white;
+  border: none;
+}
+
+.alert-gradient.alert-danger {
+  background: linear-gradient(45deg, var(--alert-danger-color), #f87171);
+  color: white;
+  border: none;
+}
+
+/* 警告提示内容 */
+.alert-heading {
+  color: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.alert-text {
+  color: inherit;
+  margin-bottom: 0;
+}
+
+.alert-link {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* 不同尺寸的警告提示 */
+.alert-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.alert-sm .alert-heading {
+  font-size: 1rem;
+}
+
+.alert-sm .alert-icon {
+  font-size: 1rem;
+  top: 0.5rem;
+  left: 1rem;
+}
+
+.alert-sm.alert-with-icon {
+  padding-left: 2.75rem;
+}
+
+.alert-sm.alert-dismissible {
+  padding-right: 2.5rem;
+}
+
+.alert-sm .alert-close {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.alert-lg {
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+.alert-lg .alert-heading {
+  font-size: 1.3rem;
+}
+
+.alert-lg .alert-icon {
+  font-size: 1.5rem;
+  top: 1.25rem;
+  left: 1.5rem;
+}
+
+.alert-lg.alert-with-icon {
+  padding-left: 4rem;
+}
+
+.alert-lg.alert-dismissible {
+  padding-right: 3.5rem;
+}
+
+.alert-lg .alert-close {
+  padding: 1.25rem 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* 动画效果 */
+.alert-animated {
+  animation: alertSlideIn 0.3s ease forwards;
+}
+
+@keyframes alertSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes alertFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.alert-fade-out {
+  animation: alertFadeOut 0.3s ease forwards;
+}
+
+/* 横幅样式警告提示（全宽） */
+.alert-banner {
+  width: 100%;
+  border-radius: 0;
+  margin-bottom: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+}
+
+/* 可操作的警告提示 */
+.alert-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+  gap: 0.5rem;
+}
+
+.alert-btn {
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.alert-success .alert-btn-default {
+  background-color: transparent;
+  border-color: var(--alert-success-color);
+  color: var(--alert-success-color);
+}
+
+.alert-success .alert-btn-default:hover {
+  background-color: var(--alert-success-color);
+  color: white;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .alert {
+    padding: 0.75rem 1rem;
+  }
+  
+  .alert-dismissible {
+    padding-right: 2.5rem;
+  }
+  
+  .alert-close {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .alert-with-icon {
+    padding-left: 2.75rem;
+  }
+  
+  .alert-icon {
+    top: 0.75rem;
+    left: 1rem;
+    font-size: 1rem;
+  }
+  
+  .alert-heading {
+    font-size: 1rem;
+  }
+} 
