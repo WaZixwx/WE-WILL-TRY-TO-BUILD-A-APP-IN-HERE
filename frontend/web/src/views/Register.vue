@@ -1,3 +1,10 @@
+<!-- 
+  * LightLink 注册页面
+  * 展示用户注册页面
+  * 支持注册账号、切换至登录账号等功能
+ * @author 开发者：WaZixwx, HanBai
+ -->
+
 <template>
   <div class="register-container">
     <div class="register-card">

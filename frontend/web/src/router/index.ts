@@ -53,6 +53,24 @@ const routes: Array<RouteRecordRaw> = [
       requiresAuth: true
     }
   },
+  {
+    path: '/moments',
+    name: 'Moments',
+    component: () => import('../views/Moments.vue'),
+    meta: {
+      title: 'LightLink - 社交圈子',
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/wallet',
+    name: 'Wallet',
+    component: () => import('../views/Wallet.vue'),
+    meta: {
+      title: 'LightLink - 钱包',
+      requiresAuth: true
+    }
+  },
   // 404 页面
   {
     path: '/:pathMatch(.*)*',
